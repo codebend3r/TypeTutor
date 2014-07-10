@@ -1,3 +1,3 @@
-RobotOwl
+Mirna Typer
 
-Portfolio site built on Angular
+app I created for my mom
