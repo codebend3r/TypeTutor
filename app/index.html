@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Mirna Typer</title>
+
+  <!-- build:css css/mirna.css -->
+  <link rel="stylesheet" type="text/css" href="css/main.css"/>
+  <!-- endbuild -->
+
+</head>
+<body ng-app="mirnaApp">
+
+  <div class="main-container" ng-controller="MainCtrl">
+    <div class="panel panel-default">
+
+      <div class="panel-heading">
+        <h2 class="panel-title custom">{{title}}</h2>
+      </div>
+
+      <div class="panel-body">
+        <p>{{randomText}}</p>
+        <textarea class="type-capturer" ng-keypress="captureTyping()" placeholder="Start typing the paragraph above" ng-model="paragraphBeingTyped"></textarea>
+      </div>
+
+      <div class="panel-body">
+        <button class="btn btn-danger" ng-click="startTimer()">Start</button>
+        <button class="btn btn-success" ng-click="stopTimer()">Stop</button>
+        <div class="pull-right"><input type="checkbox" ng-model="autoStart"><span>automatically start and stop timer</span></div>
+      </div>
+
+      <div class="panel-body" ng-if="!showResults">
+        <div class="alert alert-success" ng-if="!firstWord()" role="alert">Currently typing at {{wpm}} WPM</div>
+      </div>
+
+      <div class="jumbotron" ng-if="showResults">
+        <h1>Results</h1>
+        <p>Congratulations, you have typed {{wpm}} WPM.</p>
+        <p><a class="btn btn-primary btn-lg" ng-click="clearStats()">Try again</a></p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- build:js js/mirna.js -->
+  <script src="js/vendor/angular.js" type="text/javascript"></script>
+  <script src="js/main.js" type="text/javascript"></script>
+  <!-- endbuild -->
+
+</body>
+</html>
