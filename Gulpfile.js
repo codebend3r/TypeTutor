@@ -1,6 +1,7 @@
 'use strict';
 
 var gulp = require('gulp'),
+  sass = require('gulp-sass'),
   pkg = require('./package.json'),
   config = {
     app: 'app',
@@ -73,10 +74,7 @@ gulp.task('html', function () {
 // SASS
 gulp.task('sass', function () {
   return gulp.src([config.app + '/sass/**/*.scss'])
-    .pipe($.rubySass({
-      style: 'expanded',
-      loadPath: [ config.app + '/includes' ]
-    }))
+    .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest(config.app + '/css'))
     .pipe($.size());
 });

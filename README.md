@@ -1,3 +1,3 @@
-Mirna Typer
+Type Tutor
 
-app I created for my mom
+Simple app to help assist people in learning to type quickly and accurately
